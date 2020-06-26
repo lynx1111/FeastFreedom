@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { MustMatch } from '../must-match.validator';
+
 
 @Component({
   selector: 'app-user-registration',
@@ -23,7 +25,9 @@ export class UserRegistrationComponent implements OnInit {
       email: ['', [Validators.required, Validators.minLength(3)]],
       password: ['',[Validators.required,Validators.minLength(3)]],
       confirmpass: ['', Validators.required]
-    },/*{validator: this.checkIfMatchingPasswords('password', 'confirmPass')}*/);
+    },{
+      validator: MustMatch('password', 'confirmpass')
+  });
   }
 
   onSubmit(employeeForm){

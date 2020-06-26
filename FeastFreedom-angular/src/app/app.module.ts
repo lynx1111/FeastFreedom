@@ -16,6 +16,7 @@ import {MatTableModule} from '@angular/material/table';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 
+ 
 @NgModule({
   declarations: [
     AppComponent,
