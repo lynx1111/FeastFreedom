@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "jack",
+      "email": "typicode",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "name": "mike",
+      "email": "typicode",
+      "password": "123"
+    },
+    {
+      "id": 3,
+      "name": "bob",
+      "email": "typicode",
+      "password": "123"
+    },
+    {
+      "name": "rex",
+      "email": "qwe",
+      "password": "qqq",
+      "confirmpass": "qqq",
+      "id": 4
+    },
+    {
+      "name": "Rex",
+      "email": "aaa",
+      "password": "bbb",
+      "confirmpass": "bbb",
+      "id": 5
+    }
+  ]
+}

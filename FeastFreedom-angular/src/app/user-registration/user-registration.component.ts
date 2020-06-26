@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
@@ -18,12 +18,12 @@ export class UserRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
      this.userForm = this.fb.group({
-       id: ['', [Validators.required, Validators.minLength(1)]],
+       //id: ['', [Validators.required, Validators.minLength(1)]],
       name: ['', [Validators.required, Validators.minLength(1)]],
       email: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['',[Validators.required,Validators.minLength(3)]]
-
-    });
+      password: ['',[Validators.required,Validators.minLength(3)]],
+      confirmpass: ['', Validators.required]
+    },/*{validator: this.checkIfMatchingPasswords('password', 'confirmPass')}*/);
   }
 
   onSubmit(employeeForm){
@@ -43,6 +43,19 @@ export class UserRegistrationComponent implements OnInit {
     this.userForm.reset();
   }
 
+  checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
+    return (group: FormGroup) => {
+      let passwordInput = group.controls[passwordKey],
+          passwordConfirmationInput = group.controls[passwordConfirmationKey];
+      if (passwordInput.value !== passwordConfirmationInput.value) {
+        return passwordConfirmationInput.setErrors({notEquivalent: true})
+      }
+      else {
+          return passwordConfirmationInput.setErrors(null);
+      }
+    }
+  }
+
   get id() {
     return this.userForm.get('id');
   }
@@ -59,5 +72,8 @@ export class UserRegistrationComponent implements OnInit {
     return this.userForm.get('password');
   }
 
+  get confirmpass() {
+    return this.userForm.get('confirmpass');
+  }
 
 }

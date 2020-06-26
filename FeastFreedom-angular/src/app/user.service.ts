@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
-  private _url: string = "";
+  private _url: string = "http://localhost:3000/users";
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]>{
