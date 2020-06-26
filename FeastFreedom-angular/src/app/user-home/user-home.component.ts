@@ -1,16 +1,19 @@
-import { Component, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-user-home',
+  templateUrl: './user-home.component.html',
+  styleUrls: ['./user-home.component.css']
 })
-export class AppComponent {
-  title = 'FeastFreedom-angular';
+export class UserHomeComponent implements OnInit {
+
+  constructor() { }
+
+
   opened = true;
   @ViewChild('sidenav',  { static: true }) sidenav: MatSidenav;
-  ngOnInit() {
+  ngOnInit(): void {
     console.log(window.innerWidth)
     if (window.innerWidth < 768) {
       this.sidenav.fixedTopGap = 55;

@@ -1,0 +1,24 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="header">
+    <div>User Home</div>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <!-- Sidenav -->
+    <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
+      [fixedTopGap]>
+      <mat-nav-list>
+        <a mat-list-item routerLinkActive="active" routerLink="/userhome">
+          <mat-icon>home</mat-icon> Home
+        </a>
+        <a mat-list-item routerLinkActive="active" routerLink="/kitchenlist">
+          <mat-icon>format_list_bulleted</mat-icon> Kitchen List
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Main content -->
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <h2>Add Employee</h2>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm)">
+      
+        <label>Id</label>
+        <input type="text" [class.is-invalid]="id.invalid && id.touched" 
+        formControlName="id" class="form-control">
+            <div *ngIf="id.errors && id.touched">
+              <div class="alert alert-danger" *ngIf="id.errors?.required">ID is required</div>
+              <div class="alert alert-danger" *ngIf="id.errors?.minlength">ID must be at least 1 characters</div>
+            </div>
+        
+        <label>Name</label>
+        <input type="text" [class.is-invalid]="firstname.invalid && firstname.touched" 
+        formControlName="firstname" class="form-control">
+            <div *ngIf="firstname.errors && firstname.touched">
+              <div class="alert alert-danger" *ngIf="firstname.errors?.required">First Name is required</div>
+              <div class="alert alert-danger" *ngIf="firstname.errors?.minlength">First Name must be at least 3 characters</div>
+            </div>
+  
+        <label>Email</label>
+        <input type="text" [class.is-invalid]="lastname.invalid && lastname.touched" 
+        formControlName="lastname" class="form-control">
+            <div *ngIf="lastname.errors && lastname.touched">
+              <div class="alert alert-danger" *ngIf="lastname.errors?.required">Last Name is required</div>
+              <div class="alert alert-danger" *ngIf="lastname.errors?.minlength">Last Name must be at least 3 characters</div>
+            </div>
+  
+        <label>Password</label>
+        <input type="text" [class.is-invalid]="salary.invalid && salary.touched" 
+        formControlName="salary" class="form-control">
+            <div *ngIf="salary.touched && salary.errors">
+              <div class="alert alert-danger" *ngIf="salary.errors.required">Salary is required</div>
+              <div class="alert alert-danger" *ngIf="salary.errors.pattern">Salary must be numbers</div>
+            </div>
+       
+  
+       <label>Confirm Password</label>
+       <input type="text" [class.is-invalid]="department.invalid && department.touched" 
+       formControlName="department" class="form-control">
+           <div *ngIf="department.errors && department.touched">
+             <div class="alert alert-danger" *ngIf="department.errors?.required">Department is required</div>
+             <div class="alert alert-danger" *ngIf="department.errors?.minlength">Department must be at least 2 characters</div>
+           </div><br>
+
+        <button class="btn btn-primary" [disabled]="!employeeForm.valid" type="submit">Submit form</button>
+    </form>
+  </div>
