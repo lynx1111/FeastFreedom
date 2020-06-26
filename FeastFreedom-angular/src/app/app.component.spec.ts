@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'FeastFreedom'`, () => {
+  it(`should have as title 'FeastFreedom-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('FeastFreedom');
+    expect(app.title).toEqual('FeastFreedom-angular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('FeastFreedom app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('FeastFreedom-angular app is running!');
   });
 });
