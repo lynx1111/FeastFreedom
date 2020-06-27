@@ -19,17 +19,15 @@
       "password": "123"
     },
     {
-      "name": "rex",
-      "email": "qwe",
-      "password": "qqq",
-      "confirmpass": "qqq",
+      "name": null,
+      "email": null,
+      "password": null,
       "id": 4
     },
     {
-      "name": "Rex",
-      "email": "aaa",
+      "name": "bbb",
+      "email": "bbb",
       "password": "bbb",
-      "confirmpass": "bbb",
       "id": 5
     }
   ]

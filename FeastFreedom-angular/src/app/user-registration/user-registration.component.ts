@@ -3,6 +3,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { MustMatch } from '../must-match.validator';
+import { User } from '../user';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class UserRegistrationComponent implements OnInit {
   public userForm;
   users;
   errorMsg;
+  uf;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
@@ -30,9 +32,16 @@ export class UserRegistrationComponent implements OnInit {
   });
   }
 
-  onSubmit(employeeForm){
+  onSubmit(userForm){
+
     console.log(this.userForm.value);
-    this.userService.postUser(this.userForm.value).subscribe(
+    this.uf = this.fb.group({
+      name:[this.userForm.value.name],
+      email:[this.userForm.value.email],
+      password:[this.userForm.value.password]
+    })
+    console.log(this.uf.value);
+    this.userService.postUser(this.uf.value).subscribe(
       (data) => {
         this.users = data; 
         console.log(this.users);
@@ -47,18 +56,6 @@ export class UserRegistrationComponent implements OnInit {
     this.userForm.reset();
   }
 
-  checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
-    return (group: FormGroup) => {
-      let passwordInput = group.controls[passwordKey],
-          passwordConfirmationInput = group.controls[passwordConfirmationKey];
-      if (passwordInput.value !== passwordConfirmationInput.value) {
-        return passwordConfirmationInput.setErrors({notEquivalent: true})
-      }
-      else {
-          return passwordConfirmationInput.setErrors(null);
-      }
-    }
-  }
 
   get id() {
     return this.userForm.get('id');
