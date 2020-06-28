@@ -1,0 +1,19 @@
+<h2 [ngStyle]="{'text-align':'center', 'margin-bottom':'20px'}">kitchen List</h2>
+<h3>{{errorMsg}}</h3>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Day</th>
+    <th scope="col">Time</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let kitchen of kitchens" >
+    <td>{{kitchen.name}}</td>
+    <td>{{kitchen.day}}</td>
+    <td>{{kitchen.time}}</td>
+    <td><button (click)="onSelect(kitchen)">See the Menu</button></td>
+  </tr>
+  </tbody>
+</table>

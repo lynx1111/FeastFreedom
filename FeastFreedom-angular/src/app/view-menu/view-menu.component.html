@@ -1,0 +1,22 @@
+<h2 [ngStyle]="{'margin-bottom':'20px'}">Menu List</h2>
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Veg/No-Veg</th>
+      <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let menu of menus" >
+      <td>{{menu.name}}</td>
+      <td>{{menu.veg}}</td>
+      <td>{{menu.price}}</td>
+      <td><button (click)="onSelect(menu)">Add oder</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>

@@ -15,6 +15,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { KitchenListComponent } from './kitchen-list/kitchen-list.component';
+import { ViewMenuComponent } from './view-menu/view-menu.component';
 
  
 @NgModule({
@@ -22,7 +24,9 @@ import { UserHomeComponent } from './user-home/user-home.component';
     AppComponent,
     UserRegistrationComponent,
     UserHomeComponent,
-    routingComponents
+    routingComponents,
+    KitchenListComponent,
+    ViewMenuComponent
     
   ],
   imports: [
