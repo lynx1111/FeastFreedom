@@ -17,6 +17,8 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { UserHomeComponent } from './user-home/user-home.component';
 import { KitchenListComponent } from './kitchen-list/kitchen-list.component';
 import { ViewMenuComponent } from './view-menu/view-menu.component';
+import { NavComponent } from './nav/nav.component';
+import { CartComponent } from './cart/cart.component';
 
  
 @NgModule({
@@ -26,7 +28,9 @@ import { ViewMenuComponent } from './view-menu/view-menu.component';
     UserHomeComponent,
     routingComponents,
     KitchenListComponent,
-    ViewMenuComponent
+    ViewMenuComponent,
+    NavComponent,
+    CartComponent
     
   ],
   imports: [

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { MustMatch } from '../must-match.validator';
 import { User } from '../user';
+import { NavService } from '../nav.service';
+import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Component({
@@ -17,10 +19,15 @@ export class UserRegistrationComponent implements OnInit {
   users;
   errorMsg;
   uf;
+  navcheck: boolean;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router, public nav: NavService) { }
 
+  opened = true;
+  
+  @ViewChild('sidenav',  { static: true }) sidenav: MatSidenav;
   ngOnInit(): void {
+     this.nav.hide();
      this.userForm = this.fb.group({
        //id: ['', [Validators.required, Validators.minLength(1)]],
       name: ['', [Validators.required, Validators.minLength(1)]],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KitchenService } from '../kitchen.service';
 import { Router } from '@angular/router';
+import { NavService } from '../nav.service';
 
 @Component({
   selector: 'app-kitchen-list',
@@ -11,9 +12,10 @@ export class KitchenListComponent implements OnInit {
   public kitchens;
   public errorMsg;
   public dataFromChild;
-  constructor(private _kitchenService:KitchenService, private router: Router) { }
+  constructor(private _kitchenService:KitchenService, private router: Router, public nav: NavService) { }
 
   ngOnInit(): void {
+    this.nav.show();
     this._kitchenService.getKitchens().subscribe(
       (data) => {this.kitchens = data; console.log(data)},
       (error) => this.errorMsg = error

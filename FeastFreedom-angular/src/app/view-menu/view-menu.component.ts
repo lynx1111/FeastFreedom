@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { KitchenService } from '../kitchen.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { NavService } from '../nav.service';
+import { CartService } from '../cart.service';
+import { Cart } from '../cart';
 
 @Component({
   selector: 'app-view-menu',
@@ -12,10 +15,14 @@ export class ViewMenuComponent implements OnInit {
   public kitchen;
   public errorMsg;
   public menus;
+  public cart;
+  public menu;
 
-  constructor(private empService: KitchenService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private empService: KitchenService, private route: ActivatedRoute, private router: Router,public nav: NavService,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.nav.show();
     this.route.paramMap.subscribe((params: ParamMap) => {
       let id = params.get('id');
       console.log(id)
@@ -33,6 +40,13 @@ export class ViewMenuComponent implements OnInit {
     );
     //this.menus=data.menu;
   }
+  onSelect(menu){
+    console.log(this.menu);
+    this.cart = new Cart(menu.value.name,menu.value.veg,menu.value.price,1);
+    this.cartService.postCart(this.cart.value).subscribe(
+      (data) => this.cart = data,
+      (error) => this.errorMsg = error
+    )};
 
   goBack(){
       this.router.navigate(['/kitchens']);

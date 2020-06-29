@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
 import { NavService } from '../nav.service';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-user-home',
-  templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.css']
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
-export class UserHomeComponent implements OnInit {
+export class NavComponent implements OnInit {
 
   constructor(public nav: NavService) { }
 
@@ -15,18 +15,17 @@ export class UserHomeComponent implements OnInit {
   opened = true;
   @ViewChild('sidenav',  { static: true }) sidenav: MatSidenav;
   ngOnInit(): void {
-    /*console.log(window.innerWidth)
+    console.log(window.innerWidth)
     if (window.innerWidth < 768) {
       this.sidenav.fixedTopGap = 55;
       this.opened = false;
     } else {
       this.sidenav.fixedTopGap = 55;
       this.opened = true;
-    }*/
-    this.nav.show();
+    }
   }
 
-  /*@HostListener('window:resize', ['$event'])
+  @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (event.target.innerWidth < 768) {
       this.sidenav.fixedTopGap = 55;
@@ -44,5 +43,6 @@ export class UserHomeComponent implements OnInit {
     } else {
       return false;
     }
-  }*/
+  }
+
 }
