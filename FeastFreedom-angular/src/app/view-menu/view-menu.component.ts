@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { KitchenService } from '../kitchen.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { NavService } from '../nav.service';
-import { CartService } from '../cart.service';
+
 import { Cart } from '../cart';
+import { MenuService } from '../menu.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-view-menu',
@@ -17,23 +19,25 @@ export class ViewMenuComponent implements OnInit {
   public menus;
   public cart;
   public menu;
+  public cs;
 
   constructor(private empService: KitchenService, private route: ActivatedRoute, private router: Router,public nav: NavService,
-    private cartService: CartService) { }
+    private menuService: MenuService, private cartServuce: CartService) { }
 
   ngOnInit(): void {
     this.nav.show();
+    this.cs=this.cartServuce;
     this.route.paramMap.subscribe((params: ParamMap) => {
       let id = params.get('id');
       console.log(id)
       this.kitchenId = id;
       console.log(this.kitchenId);
     });
-    this.empService.getKitchensById(this.kitchenId).subscribe(
+    this.menuService.getMenusByKitchenId(this.kitchenId).subscribe(
       (data) => {
         this.kitchen = data; 
         console.log(data); 
-        this.menus=this.kitchen.menu;
+        this.menus=this.kitchen;
       },
       (error) => {this.errorMsg = error; console.log(error); }
       
@@ -42,8 +46,8 @@ export class ViewMenuComponent implements OnInit {
   }
   onSelect(menu){
     console.log(this.menu);
-    this.cart = new Cart(menu.value.name,menu.value.veg,menu.value.price,1);
-    this.cartService.postCart(this.cart.value).subscribe(
+    
+    this.menuService.postCart(this.cart.value).subscribe(
       (data) => this.cart = data,
       (error) => this.errorMsg = error
     )};

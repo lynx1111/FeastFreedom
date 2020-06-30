@@ -1,20 +1,24 @@
 <br>
 <mat-card>
-<h2 [ngStyle]="{'text-align':'center', 'margin-bottom':'20px'}">kitchen List</h2>
+<h2 [ngStyle]="{'text-align':'center', 'margin-bottom':'100x'}">kitchen List</h2>
 <h3>{{errorMsg}}</h3>
 <table class="table table-striped">
   <thead>
   <tr>
+    <th scope="col">Kitchens</th>
     <th scope="col">Name</th>
     <th scope="col">Day</th>
-    <th scope="col">Time</th>
+    <th scope="col">Star Time</th>
+    <th scope="col">Stop Time</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let kitchen of kitchens" >
+    <td><img src="/assets/{{kitchen.image}}" alt="" height="100"></td>
     <td>{{kitchen.name}}</td>
     <td>{{kitchen.day}}</td>
-    <td>{{kitchen.time}}</td>
+    <td>{{kitchen.starttime}}</td>
+    <td>{{kitchen.stoptime}}</td>
     <td><button mat-raised-button (click)="onSelect(kitchen)">See the Menu</button></td>
   </tr>
   </tbody>

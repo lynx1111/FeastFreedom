@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
+
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { NavService } from '../nav.service';
+import { CartService } from '../cart.service';
+import { Cart } from '../cart';
 
 @Component({
   selector: 'app-cart',
@@ -25,16 +27,17 @@ export class CartComponent implements OnInit {
       this.kitchenId = id;
       console.log(this.kitchenId);
     });*/
-    this.empService.getCartsByUserId(1).subscribe(
+
+    /*this.empService.getCartsByUserId(1).subscribe(
       (data) => {
         this.cart = data; 
         console.log(data); 
         this.menus=this.cart;
       },
       (error) => {this.errorMsg = error; console.log(error); }
-      
-    );
+    );*/
     //this.menus=data.menu;
+    this.menus= this.empService.getmenus();
   }
 
   goBack(){

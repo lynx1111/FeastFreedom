@@ -5,6 +5,7 @@
 <table class="table table-striped">
     <thead>
     <tr>
+      <th scope="col">Menu</th>
       <th scope="col">Name</th>
       <th scope="col">Veg/No-Veg</th>
       <th scope="col">Price</th>
@@ -12,10 +13,11 @@
     </thead>
     <tbody>
     <tr *ngFor="let menu of menus" >
+      <td><img src="/assets/{{menu.photo}}" alt="" height="100"></td>
       <td>{{menu.name}}</td>
       <td>{{menu.veg}}</td>
       <td>{{menu.price}}</td>
-      <td><button mat-raised-button (click)="onSelect(menu)">Add oder</button></td>
+      <td><button mat-raised-button (click)="cs.addcart(menu)">Add oder</button></td>
     </tr>
     </tbody>
   </table>

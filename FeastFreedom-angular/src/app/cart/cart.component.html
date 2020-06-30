@@ -1,8 +1,9 @@
 <mat-card>
-<h2 [ngStyle]="{'margin-bottom':'20px'}">Menu List</h2>
+<h2 [ngStyle]="{'margin-bottom':'20px'}">Cart List</h2>
 <table class="table table-striped">
     <thead>
     <tr>
+      <th scope="col">Order</th>
       <th scope="col">Name</th>
       <th scope="col">Veg/No-Veg</th>
       <th scope="col">Price</th>
@@ -10,6 +11,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let menu of menus" >
+      <td><img src="/assets/{{menu.photo}}" alt="" height="100"></td>
       <td>{{menu.name}}</td>
       <td>{{menu.veg}}</td>
       <td>{{menu.price}}</td>
