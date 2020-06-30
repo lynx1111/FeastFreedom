@@ -19,6 +19,7 @@ import { KitchenListComponent } from './kitchen-list/kitchen-list.component';
 import { ViewMenuComponent } from './view-menu/view-menu.component';
 import { NavComponent } from './nav/nav.component';
 import { CartComponent } from './cart/cart.component';
+import { ProviderHomeComponent } from './provider-home/provider-home.component';
 
  
 @NgModule({
@@ -30,7 +31,8 @@ import { CartComponent } from './cart/cart.component';
     KitchenListComponent,
     ViewMenuComponent,
     NavComponent,
-    CartComponent
+    CartComponent,
+    ProviderHomeComponent
     
   ],
   imports: [

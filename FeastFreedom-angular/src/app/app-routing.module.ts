@@ -5,6 +5,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { KitchenListComponent } from './kitchen-list/kitchen-list.component';
 import { ViewMenuComponent } from './view-menu/view-menu.component';
 import { CartComponent } from './cart/cart.component';
+import { ProviderHomeComponent } from './provider-home/provider-home.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'userregister', component: UserRegistrationComponent },
   { path: 'kitchens', component: KitchenListComponent },
   { path: 'kitchens/:id', component: ViewMenuComponent },
-  { path: 'cart', component: CartComponent }
+  { path: 'cart', component: CartComponent },
+  { path: 'providerhome', component: ProviderHomeComponent }
 ];
 
 @NgModule({
@@ -25,5 +27,6 @@ export const routingComponents = [UserHomeComponent,
   UserRegistrationComponent,
   KitchenListComponent,
   ViewMenuComponent,
-  CartComponent
+  CartComponent,
+  ProviderHomeComponent
 ]

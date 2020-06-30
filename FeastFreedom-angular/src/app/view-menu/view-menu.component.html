@@ -1,4 +1,7 @@
+<br>
+<mat-card>
 <h2 [ngStyle]="{'margin-bottom':'20px'}">Menu List</h2>
+<h3>{{errorMsg}}</h3>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -12,11 +15,12 @@
       <td>{{menu.name}}</td>
       <td>{{menu.veg}}</td>
       <td>{{menu.price}}</td>
-      <td><button (click)="onSelect(menu)">Add oder</button></td>
+      <td><button mat-raised-button (click)="onSelect(menu)">Add oder</button></td>
     </tr>
     </tbody>
   </table>
+</mat-card>
 
-<div>
+<!--<div>
   <button (click)="goBack()">Go Back</button>
-</div>
+</div>-->
