@@ -7,6 +7,7 @@
       <th scope="col">Name</th>
       <th scope="col">Veg/No-Veg</th>
       <th scope="col">Price</th>
+      <th scope="col">Count</th>
     </tr>
     </thead>
     <tbody>
@@ -15,9 +16,13 @@
       <td>{{menu.name}}</td>
       <td>{{menu.veg}}</td>
       <td>{{menu.price}}</td>
-      
+      <td>{{empService.getcountbymenuname(menu.name)}}</td>
     </tr>
     </tbody>
+
+    <span matBadge="5" matBadgeSize="large">Total: {{empService.totalprice()}}</span>
+    
+
   </table>
 </mat-card>
 

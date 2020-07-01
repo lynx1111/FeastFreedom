@@ -1,6 +1,6 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="header">
-    <div>User Home</div>
+    <div>Feast Freedom</div>
   </mat-toolbar>
   
   <mat-sidenav-container>
@@ -8,14 +8,14 @@
     <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
       [fixedTopGap]> 
       <mat-nav-list *ngIf="nav.visible">
-        <a mat-list-item routerLinkActive="active" routerLink="/userhome">
+        <a  mat-list-item routerLinkActive="active" routerLink="/userhome">
           <mat-icon>home</mat-icon> Home
         </a>
         <a mat-list-item routerLinkActive="active" routerLink="/kitchens">
           <mat-icon>format_list_bulleted</mat-icon> Kitchens
         </a>
-        <a mat-list-item routerLinkActive="active" routerLink="/cart">
-            <mat-icon>format_list_bulleted</mat-icon> Cart
+        <a  mat-list-item routerLinkActive="active" routerLink="/cart">
+            <mat-icon>shopping_cart</mat-icon> Cart
           </a>
       </mat-nav-list>
     </mat-sidenav>

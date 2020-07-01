@@ -6,7 +6,6 @@ export class Kitchen {
     public day: string;
     public starttime: string;
     public stoptime: string;
-    
     public image: string;
 
     /*constructor( name: string, day: string, time: string, menu: Menu ) {

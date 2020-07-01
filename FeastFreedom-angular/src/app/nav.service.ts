@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class NavService {
   visible: boolean;
-  cartv: boolean;
+  providerv: boolean;
 
-  constructor() { this.visible = false; this.cartv =true}
+  constructor() { this.visible = false; this.providerv =true}
 
   hide() { this.visible = false; }
 
@@ -15,9 +15,9 @@ export class NavService {
 
   toggle() { this.visible = !this.visible; }
 
-  cartshow() {this.cartv =true;}
+  cartshow() {this.providerv =true;}
 
-  carthide() {this.cartv =false;}
+  carthide() {this.providerv =false;}
 
 
 }

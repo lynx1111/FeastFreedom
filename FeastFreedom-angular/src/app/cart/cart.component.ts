@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   public errorMsg;
   public menus;
 
-  constructor(private empService: CartService, private route: ActivatedRoute, private router: Router,public nav: NavService) { }
+  constructor(public empService: CartService, private route: ActivatedRoute, private router: Router,public nav: NavService) { }
 
   ngOnInit(): void {
     this.nav.show();
@@ -37,7 +37,8 @@ export class CartComponent implements OnInit {
       (error) => {this.errorMsg = error; console.log(error); }
     );*/
     //this.menus=data.menu;
-    this.menus= this.empService.getmenus();
+    this.menus= this.empService.getnodulmenu();
+    
   }
 
   goBack(){
