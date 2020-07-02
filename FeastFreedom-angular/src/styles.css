@@ -148,7 +148,9 @@ body {
   height: 100%;
   display: flex;
   flex: 1 1 auto;
-  background-image: url(/assets/beef.png);
+  background-image: url(/assets/FeastforFreedom.jpg) !important;;
+  background-size: cover;
+  background-position: center center;
 }
 
 .mat-nav-list .mat-list-item {

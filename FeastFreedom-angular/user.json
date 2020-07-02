@@ -33,7 +33,6 @@
       "starttime": "10:00",
       "stoptime": "20:00",
       "image": "mcdo.jpg"
-      
     },
     {
       "id": 2,
@@ -41,8 +40,7 @@
       "day": "Friday",
       "starttime": "8:00",
       "stoptime": "20:00",
-      "image":"domino.png"
-      
+      "image": "domino.png"
     }
   ],
   "carts": [
@@ -54,7 +52,7 @@
       "userid": 1
     }
   ],
-  "menus":[
+  "menus": [
     {
       "id": 1,
       "name": "beef",
@@ -86,7 +84,14 @@
       "price": 8,
       "kitchenid": 2,
       "photo": "pepper.jpg"
+    },
+    {
+      "name": "chicken",
+      "veg": "No-veg",
+      "price": 8,
+      "kitchenid": 1,
+      "photo": "chicken.jpg",
+      "id": 5
     }
-
   ]
 }

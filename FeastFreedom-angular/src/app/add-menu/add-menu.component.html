@@ -1,6 +1,6 @@
-<p>add-menu works!</p>
+<mat-card>
 <div class="container-fluid">
-    <h2>User Register</h2>
+    <h2>Add Menu</h2>
     <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
       
         <!--<label>Id</label>
@@ -19,31 +19,43 @@
               <div class="alert alert-danger" *ngIf="name.errors?.minlength">Name must be at least 1 characters</div>
             </div>
   
-        <label>Email</label>
-        <input type="text" [class.is-invalid]="email.invalid && email.touched" 
-        formControlName="email" class="form-control">
-            <div *ngIf="email.errors && email.touched">
-              <div class="alert alert-danger" *ngIf="email.errors?.required">Email is required</div>
-              <div class="alert alert-danger" *ngIf="email.errors?.email">Must be valuable email +address</div>
+        <label>Veg/No-Veg</label>
+        <input type="text" [class.is-invalid]="veg.invalid && veg.touched" 
+        formControlName="veg" class="form-control">
+            <div *ngIf="veg.errors && veg.touched">
+              <div class="alert alert-danger" *ngIf="veg.errors?.required">Veg Information is required</div>
+              <div class="alert alert-danger" *ngIf="veg.errors?.minlength">Must be at least 1 characters</div>
             </div>
   
-        <label>Password</label>
-        <input type="text" [class.is-invalid]="password.invalid && password.touched" 
-        formControlName="password" class="form-control">
-            <div *ngIf="password.touched && password.errors">
-              <div class="alert alert-danger" *ngIf="password.errors.required">Password is required</div>
-              <div class="alert alert-danger" *ngIf="password.errors.minlength">Password must be at least 3 characters</div>
+        <label>Price</label>
+        <input type="number" [class.is-invalid]="price.invalid && price.touched" 
+        formControlName="price" class="form-control">
+            <div *ngIf="price.touched && price.errors">
+              <div class="alert alert-danger" *ngIf="price.errors.required">Price is required</div>
+              <div class="alert alert-danger" *ngIf="price.errors.minlength">Price must be at least 1 characters</div>
             </div>
        
   
-       <label>Confirm Password</label>
-       <input type="text" [class.is-invalid]="confirmpass.invalid && confirmpass.touched" 
-       formControlName="confirmpass" class="form-control">
-           <div *ngIf="confirmpass.errors && confirmpass.touched">
-             <div class="alert alert-danger" *ngIf="confirmpass.errors?.required">Confirm Password is required</div>
-             <div class="alert alert-danger" *ngIf="confirmpass.errors?.mustMatch">Password not match</div>
+       <label>Kitchen code</label>
+       <input type="number" [class.is-invalid]="kitchenid.invalid && kitchenid.touched" 
+       formControlName="kitchenid" class="form-control">
+           <div *ngIf="kitchenid.errors && kitchenid.touched">
+             <div class="alert alert-danger" *ngIf="kitchenid.errors?.required">Kitchen Code is required</div>
+             <div class="alert alert-danger" *ngIf="kitchenid.errors?.minlength">Kitchen Code must be at least 1 characters</div>
            </div><br>
+        
+        <label>Image</label>
+        <input type="text" [class.is-invalid]="photo.invalid && photo.touched" 
+       formControlName="photo" class="form-control">
+           <div *ngIf="photo.errors && photo.touched">
+             <div class="alert alert-danger" *ngIf="photo.errors?.required">photo is required</div>
+             <div class="alert alert-danger" *ngIf="photo.errors?.minlength">photo name must be at least 1 characters</div>
+           </div>
+        <input type="file" (change) = "onFileSelected($event)">    
+        <br>
 
         <button class="btn btn-primary" [disabled]="!userForm.valid" type="submit">Submit form</button>
+        <button class="btn btn-primary"  (click)="onCancel()">Cancel form</button>
     </form>
   </div>
+</mat-card>

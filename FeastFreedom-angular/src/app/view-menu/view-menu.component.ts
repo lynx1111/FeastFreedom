@@ -6,6 +6,8 @@ import { NavService } from '../nav.service';
 import { Cart } from '../cart';
 import { MenuService } from '../menu.service';
 import { CartService } from '../cart.service';
+import { Menu } from '../menu';
+import { Kitchen } from '../kitchen';
 
 @Component({
   selector: 'app-view-menu',
@@ -20,6 +22,7 @@ export class ViewMenuComponent implements OnInit {
   public cart;
   public menu;
   public cs;
+  public newkitchen
 
   constructor(private empService: KitchenService, private route: ActivatedRoute, private router: Router,public nav: NavService,
     private menuService: MenuService, private cartServuce: CartService) { }
@@ -33,6 +36,8 @@ export class ViewMenuComponent implements OnInit {
       this.kitchenId = id;
       console.log(this.kitchenId);
     });
+    
+
     this.menuService.getMenusByKitchenId(this.kitchenId).subscribe(
       (data) => {
         this.kitchen = data; 
@@ -47,7 +52,7 @@ export class ViewMenuComponent implements OnInit {
   onSelect(menu){
     console.log(this.menu);
     
-    this.menuService.postCart(this.cart.value).subscribe(
+    this.menuService.postMenu(this.cart.value).subscribe(
       (data) => this.cart = data,
       (error) => this.errorMsg = error
     )};
