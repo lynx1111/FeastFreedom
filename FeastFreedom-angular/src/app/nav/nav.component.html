@@ -3,7 +3,7 @@
 <mat-toolbar color="primary" class="header">
   
     <div>Feast Freedom</div>
-    <div>Welcome Mike</div>
+    <div *ngIf="nav.visible">Welcome Mike</div>
     
   </mat-toolbar>
   
@@ -20,6 +20,9 @@
         </a>
         <a mat-list-item routerLinkActive="active" routerLink="/cart">
             <mat-icon>shopping_cart</mat-icon> Cart
+        </a>
+        <a  mat-list-item routerLinkActive="active" (click)="Logout()">
+          <mat-icon>account_box</mat-icon> Logout
         </a>
       </mat-nav-list>
     </mat-sidenav>

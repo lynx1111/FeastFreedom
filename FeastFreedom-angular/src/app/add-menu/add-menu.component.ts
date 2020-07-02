@@ -58,7 +58,7 @@ export class AddMenuComponent implements OnInit {
       },
       (error) => this.errorMsg = error
     )
-    this.router.navigate(['/userhome']);
+    this.router.navigate(['/providerhome']);
     this.userForm.reset();
   }
 onFileSelected(event){
@@ -71,7 +71,7 @@ onUpload(){
 
 onCancel(){
   this.nav.show();
-  this.router.navigate(['/userhome']);
+  this.router.navigate(['/main']);
 }
 
   get id() {

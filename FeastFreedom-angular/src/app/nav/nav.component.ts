@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { NavService } from '../nav.service';
 import { MatSidenav } from '@angular/material/sidenav';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -9,7 +10,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class NavComponent implements OnInit {
 
-  constructor(public nav: NavService) { }
+  constructor(public nav: NavService, private route: ActivatedRoute, private router: Router) { }
 
 
   opened = true;
@@ -43,6 +44,11 @@ export class NavComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  Logout(){
+    this.nav.hide();
+    this.router.navigate(['/main']);
   }
 
 }

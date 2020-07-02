@@ -19,9 +19,9 @@
       "password": "123"
     },
     {
-      "name": "ZZZ",
-      "email": "zzz@gmail.com",
-      "password": "zzz",
+      "name": "Rex",
+      "email": "123@gmail",
+      "password": "123",
       "id": 4
     }
   ],
@@ -41,15 +41,14 @@
       "starttime": "8:00",
       "stoptime": "20:00",
       "image": "domino.png"
-    }
-  ],
-  "carts": [
+    },
     {
-      "id": 1,
-      "name": "sausage",
-      "veg": "no-veg",
-      "price": 11,
-      "userid": 1
+      "name": "Taco",
+      "day": "Monday, Friday",
+      "starttime": "8:00",
+      "stoptime": "20:00",
+      "image": "tacobell.jpg",
+      "id": 3
     }
   ],
   "menus": [
@@ -89,9 +88,35 @@
       "name": "chicken",
       "veg": "No-veg",
       "price": 8,
-      "kitchenid": 1,
+      "kitchenid": 3,
       "photo": "chicken.jpg",
       "id": 5
+    }
+  ],
+  "providers": [
+    {
+      "id": 1,
+      "name": "jac",
+      "email": "zzz@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "name": "mik",
+      "email": "zzz@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": 3,
+      "name": "bo",
+      "email": "zzz@gmail.com",
+      "password": "123"
+    },
+    {
+      "name": "Mike",
+      "email": "abc@gmail.com",
+      "password": "123",
+      "id": 4
     }
   ]
 }

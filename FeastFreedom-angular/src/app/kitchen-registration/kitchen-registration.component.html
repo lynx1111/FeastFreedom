@@ -1,0 +1,55 @@
+<mat-card>
+    <div class="container-fluid">
+        <h2>Kitchen Register</h2>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
+          
+            
+            <label>Name</label>
+            <input type="text" [class.is-invalid]="name.invalid && name.touched" 
+            formControlName="name" class="form-control">
+                <div *ngIf="name.errors && name.touched">
+                  <div class="alert alert-danger" *ngIf="name.errors?.required">Name is required</div>
+                  <div class="alert alert-danger" *ngIf="name.errors?.minlength">Name must be at least 1 characters</div>
+                </div>
+      
+                <label>Day</label>
+            <input type="text" [class.is-invalid]="day.invalid && day.touched" 
+            formControlName="day" class="form-control">
+                <div *ngIf="day.errors && day.touched">
+                  <div class="alert alert-danger" *ngIf="day.errors?.required">Day is required</div>
+                  <div class="alert alert-danger" *ngIf="day.errors?.minlength">Day must be at least 1 characters</div>
+                </div>
+            
+      
+            <label>Start Time</label>
+            <input type="text" [class.is-invalid]="starttime.invalid && starttime.touched" 
+            formControlName="starttime" class="form-control">
+                <div *ngIf="starttime.touched && starttime.errors">
+                  <div class="alert alert-danger" *ngIf="starttime.errors.required">Starttime is required</div>
+                  <div class="alert alert-danger" *ngIf="starttime.errors.minlength">Starttime must be at least 3 characters</div>
+                </div>
+           
+      
+           <label>End Time</label>
+           <input type="text" [class.is-invalid]="stoptime.invalid && stoptime.touched" 
+           formControlName="stoptime" class="form-control">
+               <div *ngIf="stoptime.errors && stoptime.touched">
+                 <div class="alert alert-danger" *ngIf="stoptime.errors?.required">Stop time is required</div>
+                 <div class="alert alert-danger" *ngIf="stoptime.errors?.minlength">Stop time not match</div>
+               </div><br>
+
+               <label>Image</label>
+        <input type="text" [class.is-invalid]="image.invalid && image.touched" 
+       formControlName="image" class="form-control">
+           <div *ngIf="image.errors && image.touched">
+             <div class="alert alert-danger" *ngIf="image.errors?.required">image is required</div>
+             <div class="alert alert-danger" *ngIf="image.errors?.minlength">image name must be at least 1 characters</div>
+           </div>
+        <input type="file" (change) = "onFileSelected($event)">    
+        <br>
+    
+            <button class="btn btn-primary" [disabled]="!userForm.valid" type="submit">Submit form</button>
+        </form>
+      </div>
+    </mat-card>
+    

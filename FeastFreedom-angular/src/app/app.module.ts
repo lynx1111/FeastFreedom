@@ -21,6 +21,11 @@ import { NavComponent } from './nav/nav.component';
 import { CartComponent } from './cart/cart.component';
 import { ProviderHomeComponent } from './provider-home/provider-home.component';
 import { AddMenuComponent } from './add-menu/add-menu.component';
+import { MainComponent } from './main/main.component';
+import { ProviderLoginComponent } from './provider-login/provider-login.component';
+import { ProviderRegistrationComponent } from './provider-registration/provider-registration.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { KitchenRegistrationComponent } from './kitchen-registration/kitchen-registration.component';
 
  
 @NgModule({
@@ -34,7 +39,12 @@ import { AddMenuComponent } from './add-menu/add-menu.component';
     NavComponent,
     CartComponent,
     ProviderHomeComponent,
-    AddMenuComponent
+    AddMenuComponent,
+    MainComponent,
+    ProviderLoginComponent,
+    ProviderRegistrationComponent,
+    UserLoginComponent,
+    KitchenRegistrationComponent
     
   ],
   imports: [
