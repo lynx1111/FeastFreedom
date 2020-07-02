@@ -20,6 +20,7 @@ import { ViewMenuComponent } from './view-menu/view-menu.component';
 import { NavComponent } from './nav/nav.component';
 import { CartComponent } from './cart/cart.component';
 import { ProviderHomeComponent } from './provider-home/provider-home.component';
+import { AddMenuComponent } from './add-menu/add-menu.component';
 
  
 @NgModule({
@@ -32,7 +33,8 @@ import { ProviderHomeComponent } from './provider-home/provider-home.component';
     ViewMenuComponent,
     NavComponent,
     CartComponent,
-    ProviderHomeComponent
+    ProviderHomeComponent,
+    AddMenuComponent
     
   ],
   imports: [

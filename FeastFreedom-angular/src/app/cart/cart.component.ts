@@ -37,11 +37,34 @@ export class CartComponent implements OnInit {
       (error) => {this.errorMsg = error; console.log(error); }
     );*/
     //this.menus=data.menu;
+    this.empService.resetnmenu();
     this.menus= this.empService.getnodulmenu();
     
+  }
+
+  deleteM(m: string){
+    console.log(m);
+    this.empService.deleteMenu(m);
+    if(this.getcount(m) == 0){
+      for (var i =0; i<this.menus.length;i++){
+        if (m ==this.menus[i].name){
+          this.menus.splice(i,1);
+          break;
+      }
+    }
+  }
   }
 
   goBack(){
       this.router.navigate(['/kitchens']);
   }
+
+  getcount(name: string){
+    return this.empService.getcountbymenuname(name);
+}
+
+gettotal(){
+  return this.empService.totalprice();
+}
+
 }

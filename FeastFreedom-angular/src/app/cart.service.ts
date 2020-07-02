@@ -9,6 +9,7 @@ import { Menu } from './menu';
 export class CartService {
 
 public cart = new Cart();
+public nmenu: Array<Menu> = [];
 
 
 
@@ -36,7 +37,7 @@ reset(){
 }
 
 getcountbymenuname(mname: String){
-  console.log(this.cart);
+
 let c: number = 0;
 for (let i of this.cart.menus){
   if(i.name==mname){
@@ -48,22 +49,40 @@ return c;
 
 getnodulmenu(){
   
-  let nmenu: Array<Menu> = [];
-  nmenu.push(this.cart.menus[0]);
-  for(var i =1; i<this.cart.menus.length;i++){
-   
-    for(var j = 0; j<nmenu.length; j++){
+  /*if(this.nmenu.length == 0){
+  this.nmenu.push(this.cart.menus[0]);
+}*/
+
+  for(var i =0; i<this.cart.menus.length;i++){
+   let b: boolean = true;
+    for(var j = 0; j<this.nmenu.length; j++){
       
-      if(nmenu[j].name == this.cart.menus[i].name){
+      if(this.nmenu[j].name == this.cart.menus[i].name){
+        b=false;
         break;
       }
-      if (j==nmenu.length-1){
-        nmenu.push(this.cart.menus[i]);
-      }
+    
     }   
+    if (b == true){
+      this.nmenu.push(this.cart.menus[i]);
+    }
   }
   
-  return nmenu;
+  return this.nmenu;
+}
+
+deleteMenu(menun: string){
+  for (var i =0; i<this.cart.menus.length;i++){
+    if (menun ==this.cart.menus[i].name){
+      this.cart.menus.splice(i,1);
+      break;
+      //this.nmenu.splice(i,1);
+    }
+  }
+}
+
+resetnmenu(){
+  this.nmenu = [];
 }
 
 }

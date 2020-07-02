@@ -15,17 +15,18 @@
       <td><img src="/assets/{{menu.photo}}" alt="" height="100"></td>
       <td>{{menu.name}}</td>
       <td>{{menu.veg}}</td>
-      <td>{{menu.price}}</td>
-      <td>{{empService.getcountbymenuname(menu.name)}}</td>
+      <td>{{menu.price | currency}}</td>
+      <td>{{getcount(menu.name)}}</td>
+      <button mat-raised-button color="accent" (click)="deleteM(menu.name)">Delete</button>
     </tr>
     </tbody>
 
-    <span matBadge="5" matBadgeSize="large">Total: {{empService.totalprice()}}</span>
+    <span matBadge="5" matBadgeSize="large">Total: {{gettotal() | currency}}</span>
     
 
   </table>
 </mat-card>
 
 <div>
-  <button (click)="goBack()">Go Back</button>
+  <button (click)="goBack()">Go Back To Kitchen List</button>
 </div>
